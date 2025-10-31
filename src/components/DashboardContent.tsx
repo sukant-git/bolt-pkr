@@ -30,24 +30,21 @@ export default function DashboardContent({ activeSection, user, currentPage }: D
       if (activeSection === 'home') {
         return (
           <div className="space-y-8">
-            <div className="bg-white rounded-lg p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Dashboard</h2>
-              <p className="text-gray-600 mb-2">
-                Welcome to your dashboard. You're logged in as <span className="font-semibold">{user.name}</span>.
-              </p>
-              <p className="text-gray-600">
-                Role: <span className="font-semibold">{user.role}</span>
+            <div className="bg-white rounded-lg p-8 shadow-soft">
+              <h2 className="text-2xl font-bold text-neutral-800 mb-4">Dashboard</h2>
+              <p className="text-neutral-600 mb-2">
+                Welcome to your dashboard. You're logged in as <span className="font-semibold text-primary">{user.name}</span>.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Courses</h3>
-              <div className="bg-gray-200 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-gray-800 mb-2">
+              <h3 className="text-xl font-bold text-neutral-800 mb-4">Courses</h3>
+              <div className="bg-white rounded-lg p-6 shadow-soft">
+                <h4 className="text-lg font-semibold text-neutral-800 mb-2">
                   19ECY07 - SENSORS FOR ENGINEERING APPLICATIONS
                 </h4>
-                <p className="text-gray-600 mb-4">2022 - 2026</p>
-                <button className="text-blue-600 hover:text-blue-700 font-medium">
+                <p className="text-neutral-600 mb-4">2022 - 2026</p>
+                <button className="text-primary hover:underline font-medium">
                   View Course
                 </button>
               </div>
@@ -79,36 +76,38 @@ export default function DashboardContent({ activeSection, user, currentPage }: D
       if (activeSection === 'home') {
         return (
           <div className="space-y-8">
-            <div className="flex gap-4 mb-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Batch</label>
-                <select className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                  <option>Select Batch</option>
-                </select>
+            <div className="bg-gray-700 rounded-lg p-8 shadow-soft">
+              <div className="flex gap-4 mb-6">
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Batch</label>
+                  <select className="px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary">
+                    <option>Select Batch</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Programme</label>
+                  <select className="px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary">
+                    <option>Select Programme</option>
+                  </select>
+                </div>
+                <div className="flex-1">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">Search</label>
+                  <input type="text" placeholder="Search Course" className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary" />
+                </div>
+                <div className="flex gap-2 items-end">
+                  <button className="px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90">Filter</button>
+                  <button className="px-6 py-2 bg-neutral-200 text-neutral-800 rounded-lg hover:bg-neutral-300">Reset</button>
+                </div>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Programme</label>
-                <select className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
-                  <option>Select Programme</option>
-                </select>
-              </div>
-              <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">Search</label>
-                <input type="text" placeholder="Search Course" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
-              </div>
-              <div className="flex gap-2 items-end">
-                <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Filter</button>
-                <button className="px-6 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500">Reset</button>
-              </div>
-            </div>
 
-            <div className="bg-gray-200 rounded-lg p-6">
-              <h4 className="text-lg font-semibold text-gray-800 mb-2">
-                19ECY07 - SENSORS FOR ENGINEERING APPLICATIONS
-              </h4>
-              <p className="text-gray-600 mb-2">2022 - 2026</p>
-              <p className="text-gray-600 mb-4">B.Tech IT</p>
-              <button className="text-blue-600 hover:text-blue-700 font-medium">View</button>
+              <div className="bg-neutral-50 rounded-lg p-6">
+                <h4 className="text-lg font-semibold text-neutral-800 mb-2">
+                  19ECY07 - SENSORS FOR ENGINEERING APPLICATIONS
+                </h4>
+                <p className="text-neutral-600 mb-2">2022 - 2026</p>
+                <p className="text-neutral-600 mb-4">B.Tech IT</p>
+                <button className="text-primary hover:underline font-medium">View</button>
+              </div>
             </div>
           </div>
         );
@@ -143,21 +142,21 @@ export default function DashboardContent({ activeSection, user, currentPage }: D
       if (activeSection === 'home') {
         return (
           <div className="space-y-8">
-            <div className="bg-white rounded-lg p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Attainment</h2>
-              <p className="text-gray-600">
-                Welcome to the Attainment section. You're logged in as <span className="font-semibold">{user.name}</span>.
+            <div className="bg-white rounded-lg p-8 shadow-soft">
+              <h2 className="text-2xl font-bold text-neutral-800 mb-4">Attainment</h2>
+              <p className="text-neutral-600">
+                Welcome to the Attainment section. You're logged in as <span className="font-semibold text-primary">{user.name}</span>.
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Courses</h3>
-              <div className="bg-gray-200 rounded-lg p-6">
-                <h4 className="text-lg font-semibold text-gray-800 mb-2">
+              <h3 className="text-xl font-bold text-neutral-800 mb-4">Courses</h3>
+              <div className="bg-white rounded-lg p-6 shadow-soft">
+                <h4 className="text-lg font-semibold text-neutral-800 mb-2">
                   19ECY07 - SENSORS FOR ENGINEERING APPLICATIONS
                 </h4>
-                <p className="text-gray-600 mb-4">2022 - 2026</p>
-                <button className="text-blue-600 hover:text-blue-700 font-medium">
+                <p className="text-neutral-600 mb-4">2022 - 2026</p>
+                <button className="text-primary hover:underline font-medium">
                   View Course
                 </button>
               </div>
@@ -183,11 +182,11 @@ export default function DashboardContent({ activeSection, user, currentPage }: D
     }
 
     return (
-      <div className="bg-white rounded-lg p-8 shadow-sm">
-        <h2 className="text-2xl font-bold text-gray-800 mb-4">
+      <div className="bg-white rounded-lg p-8 shadow-soft">
+        <h2 className="text-2xl font-bold text-neutral-800 mb-4">
           {activeSection.charAt(0).toUpperCase() + activeSection.slice(1).replace(/-/g, ' ')}
         </h2>
-        <p className="text-gray-600">
+        <p className="text-neutral-600">
           Content for {activeSection} will be displayed here.
         </p>
       </div>

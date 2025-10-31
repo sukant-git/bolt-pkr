@@ -13,7 +13,7 @@ export default function Dashboard({ user, onLogout }: DashboardProps) {
   const [activeSection, setActiveSection] = useState('home');
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-neutral-100">
       <Header user={user} onLogout={onLogout} currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <div className="flex">
         <Sidebar activeSection={activeSection} setActiveSection={setActiveSection} role={user.role} currentPage={currentPage} />

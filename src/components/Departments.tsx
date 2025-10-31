@@ -13,7 +13,7 @@ export default function Departments() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {departmentsData.map((dept, index) => (
-          <div key={index} className="bg-white rounded-lg p-8 shadow-sm flex flex-col justify-between">
+          <div key={index} className="bg-gray-200 rounded-lg p-8 shadow-sm flex flex-col justify-between">
             <div>
               <h3 className="text-lg font-bold text-gray-800">{dept.name}</h3>
               <p className="text-gray-600">{dept.code}</p>

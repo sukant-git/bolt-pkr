@@ -32,19 +32,19 @@ export default function Login({ onLogin }: LoginProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
+    <div className="min-h-screen bg-neutral-50 flex items-center justify-center p-4">
+      <div className="bg-white rounded-2xl shadow-medium w-full max-w-md p-8">
         <div className="flex flex-col items-center mb-8">
-          <div className="bg-blue-600 p-4 rounded-full mb-4">
+          <div className="bg-primary p-4 rounded-full mb-4">
             <GraduationCap className="w-12 h-12 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">ESEC Portal</h1>
-          <p className="text-gray-600">Engineering Student Evaluation Center</p>
+          <h1 className="text-3xl font-bold text-neutral-800 mb-2">ESEC Portal</h1>
+          <p className="text-neutral-600">Engineering Student Evaluation Center</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="username" className="block text-sm font-medium text-neutral-700 mb-2">
               Username
             </label>
             <input
@@ -52,14 +52,14 @@ export default function Login({ onLogin }: LoginProps) {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+              className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
               placeholder="Enter your username"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="password" className="block text-sm font-medium text-neutral-700 mb-2">
               Password
             </label>
             <input
@@ -67,7 +67,7 @@ export default function Login({ onLogin }: LoginProps) {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+              className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
               placeholder="Enter your password"
               required
             />
@@ -81,20 +81,20 @@ export default function Login({ onLogin }: LoginProps) {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-200 shadow-md hover:shadow-lg"
+            className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition duration-200 shadow-soft hover:shadow-medium"
           >
             Login
           </button>
         </form>
 
-        <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-          <p className="text-xs text-gray-600 font-semibold mb-2">Demo Credentials:</p>
-          <div className="space-y-1 text-xs text-gray-600">
+        {/* <div className="mt-8 p-4 bg-neutral-100 rounded-lg">
+          <p className="text-xs text-neutral-600 font-semibold mb-2">Demo Credentials:</p>
+          <div className="space-y-1 text-xs text-neutral-600">
             <p><span className="font-medium">Faculty:</span> abinaya / faculty123</p>
             <p><span className="font-medium">Student:</span> student1 / student123</p>
             <p><span className="font-medium">Admin:</span> admin / admin123</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

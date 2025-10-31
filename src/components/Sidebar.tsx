@@ -47,9 +47,9 @@ export default function Sidebar({ activeSection, setActiveSection, role, current
   }
 
   return (
-    <aside className="w-64 bg-white border-r border-gray-200 min-h-[calc(100vh-73px)]">
+    <aside className="w-64 bg-white border-r border-neutral-200 min-h-[calc(100vh-73px)]">
       <div className="p-6">
-        <h2 className="text-blue-600 font-semibold text-lg mb-6">Dashboard</h2>
+        <h2 className="text-primary font-semibold text-lg mb-6">Dashboard</h2>
         <nav className="space-y-1">
           {menuItems.map((item) => (
             <button
@@ -57,8 +57,8 @@ export default function Sidebar({ activeSection, setActiveSection, role, current
               onClick={() => setActiveSection(item.id)}
               className={`w-full text-left px-4 py-3 rounded-lg transition ${
                 activeSection === item.id
-                  ? 'bg-blue-50 text-blue-600 font-medium border-l-4 border-blue-600'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  ? 'bg-primary/10 text-primary font-medium border-l-4 border-primary'
+                  : 'text-neutral-700 hover:bg-neutral-100'
               }`}
             >
               {item.label}
