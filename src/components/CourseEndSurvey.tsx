@@ -1,10 +1,8 @@
 export default function CourseEndSurvey() {
-  const courseData = [
+  const surveyData = [
     {
-      courseType: "Theory",
-      courseCode: "19ECY07",
-      title: "SENSORS FOR ENGINEERING APPLICATIONS",
-      programme: "B.Tech - IT",
+      course: "19ECY07 - SENSORS FOR ENGINEERING APPLICATIONS",
+      batch: "2022 - 2026",
     },
   ];
 
@@ -17,47 +15,18 @@ export default function CourseEndSurvey() {
         </button>
       </div>
 
-      <div className="bg-white rounded-lg p-8 shadow-sm">
-        <div className="space-y-4">
-          <div className="flex items-center space-x-4">
-            <label htmlFor="programme" className="font-semibold">Programme</label>
-            <select id="programme" className="p-2 border rounded-lg">
-              <option>Select Programme</option>
-            </select>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {surveyData.map((survey, index) => (
+          <div key={index} className="bg-white rounded-lg p-8 shadow-sm flex flex-col justify-between">
+            <div>
+              <h3 className="text-lg font-bold text-gray-800">{survey.course}</h3>
+              <p className="text-gray-600">{survey.batch}</p>
+            </div>
+            <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 self-start">
+              View
+            </button>
           </div>
-          <div className="flex space-x-4">
-            <button className="px-4 py-2 bg-gray-200 rounded-lg">Search</button>
-            <button className="px-4 py-2 bg-gray-200 rounded-lg">Filter</button>
-            <button className="px-4 py-2 bg-gray-200 rounded-lg">Reset</button>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white rounded-lg p-8 shadow-sm">
-        <table className="w-full text-left">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="p-4 font-semibold">Course Type</th>
-              <th className="p-4 font-semibold">Course Code</th>
-              <th className="p-4 font-semibold">Title</th>
-              <th className="p-4 font-semibold">Programme</th>
-              <th className="p-4 font-semibold">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {courseData.map((course, index) => (
-              <tr key={index} className="border-b">
-                <td className="p-4">{course.courseType}</td>
-                <td className="p-4">{course.courseCode}</td>
-                <td className="p-4">{course.title}</td>
-                <td className="p-4">{course.programme}</td>
-                <td className="p-4">
-                  <button className="text-blue-600 hover:underline">View</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        ))}
       </div>
     </div>
   );

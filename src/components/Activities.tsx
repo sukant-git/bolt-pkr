@@ -1,4 +1,11 @@
 export default function Activities() {
+  const activitiesData = [
+    { name: "Assingement", maxMarks: 5 },
+    { name: "Seminar", maxMarks: 5 },
+    { name: "Quiz", maxMarks: 5 },
+    { name: "Group Discussion", maxMarks: 5 },
+  ];
+
   return (
     <div className="space-y-8">
       <div className="flex justify-between items-center">
@@ -8,7 +15,22 @@ export default function Activities() {
         </button>
       </div>
       <div className="bg-white rounded-lg p-8 shadow-sm">
-        <p className="text-gray-600">Activities content will be displayed here.</p>
+        <table className="w-full text-left">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="p-4 font-semibold">Name</th>
+              <th className="p-4 font-semibold">Max Marks</th>
+            </tr>
+          </thead>
+          <tbody>
+            {activitiesData.map((activity, index) => (
+              <tr key={index} className="border-b">
+                <td className="p-4">{activity.name}</td>
+                <td className="p-4">{activity.maxMarks}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

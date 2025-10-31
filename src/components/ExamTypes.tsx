@@ -1,4 +1,11 @@
 export default function ExamTypes() {
+  const examTypesData = [
+    { type: "Internal", name: "Continuous Assessment Test 1", totalMarks: 100, duration: "3 hours" },
+    { type: "Internal", name: "Continuous Assessment Test 2", totalMarks: 50, duration: "1 hour 30 minutes" },
+    { type: "Internal", name: "Continuous Assessment Test 3", totalMarks: 50, duration: "1 hour 30 minutes" },
+    { type: "Internal", name: "Model Examination", totalMarks: 100, duration: "3 hours" },
+  ];
+
   return (
     <div className="space-y-8">
       <div className="flex justify-between items-center">
@@ -8,7 +15,26 @@ export default function ExamTypes() {
         </button>
       </div>
       <div className="bg-white rounded-lg p-8 shadow-sm">
-        <p className="text-gray-600">Exam Types content will be displayed here.</p>
+        <table className="w-full text-left">
+          <thead>
+            <tr className="bg-gray-100">
+              <th className="p-4 font-semibold">Type</th>
+              <th className="p-4 font-semibold">Name</th>
+              <th className="p-4 font-semibold">Total Marks</th>
+              <th className="p-4 font-semibold">Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            {examTypesData.map((exam, index) => (
+              <tr key={index} className="border-b">
+                <td className="p-4">{exam.type}</td>
+                <td className="p-4">{exam.name}</td>
+                <td className="p-4">{exam.totalMarks}</td>
+                <td className="p-4">{exam.duration}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
