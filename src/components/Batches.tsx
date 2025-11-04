@@ -1,38 +1,32 @@
-import { useState } from "react";
-import BatchDetails from "./BatchDetails";
-
-interface Batch {
-  years: string;
-  regulation: string;
-  students: number;
-}
+import { useNavigate } from "react-router-dom";
+import { classesData } from "../data";
 
 export default function Batches() {
-  const [selectedBatch, setSelectedBatch] = useState<Batch | null>(null);
+  const navigate = useNavigate();
 
-  const batchesData: Batch[] = [
-    { years: "2021 - 2025", regulation: "R-2019", students: 128 },
-    { years: "2022 - 2026", regulation: "R-2019", students: 63 },
-    { years: "2023 - 2027", regulation: "R-2023", students: 128 },
-    { years: "2024 - 2028", regulation: "R-2023", students: 0 },
-  ];
+  const batches = classesData.reduce((acc, curr) => {
+    const key = `${curr.batch}-${curr.regulation}`;
+    if (!acc[key]) {
+      acc[key] = { 
+        years: curr.batch, 
+        regulation: curr.regulation, 
+        students: 0 
+      };
+    }
+    acc[key].students += curr.sections.reduce((sAcc, sCurr) => sAcc + sCurr.students.length, 0);
+    return acc;
+  }, {} as Record<string, { years: string; regulation: string; students: number }>);
 
-  if (selectedBatch) {
-    return (
-      <BatchDetails
-        batch={selectedBatch}
-        onBack={() => setSelectedBatch(null)}
-      />
-    );
-  }
+  const batchesData = Object.values(batches);
+
+  const handleViewBatch = (batch: { years: string; regulation: string }) => {
+    navigate(`/batches/${batch.years}/${batch.regulation}`);
+  };
 
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-neutral-800">Batches</h2>
-        {/* <button className="px-6 py-2 text-white rounded-lg bg-primary hover:bg-primary/90">
-          Add Batch
-        </button> */}
       </div>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         {batchesData.map((batch, index) => (
@@ -48,7 +42,7 @@ export default function Batches() {
               <p className="text-neutral-600">{batch.students} Students</p>
             </div>
             <button
-              onClick={() => setSelectedBatch(batch)}
+              onClick={() => handleViewBatch(batch)}
               className="self-start px-4 py-2 mt-4 text-white rounded-lg bg-primary hover:bg-primary/90"
             >
               View

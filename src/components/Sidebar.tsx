@@ -47,7 +47,7 @@ export default function Sidebar({ role, currentPage }: SidebarProps) {
   }
 
   return (
-    <aside className="w-64 bg-white border-r border-neutral-200 min-h-[calc(100vh-73px)]">
+    <aside className="w-64 bg-white border-r border-neutral-200 min-h-[calc(100vh-73px)] slide-in-right">
       <div className="p-6">
         <h2 className="text-primary font-semibold text-lg mb-6">Dashboard</h2>
         <nav className="space-y-1">
@@ -55,7 +55,7 @@ export default function Sidebar({ role, currentPage }: SidebarProps) {
             <Link
               key={item.id}
               to={item.path}
-              className={`block w-full text-left px-4 py-3 rounded-lg transition ${
+              className={`block w-full text-left px-4 py-3 rounded-lg transition transform transition-transform hover:scale-105 ${
                 location.pathname === item.path
                   ? 'bg-primary/10 text-primary font-medium border-l-4 border-primary'
                   : 'text-neutral-700 hover:bg-neutral-100'

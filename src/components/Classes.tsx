@@ -18,9 +18,9 @@ export default function Classes() {
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-gray-800">Classes</h2>
-        <button onClick={() => navigate(-1)} className="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+        {/* <button onClick={() => navigate(-1)} className="px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
           Back
-        </button>
+        </button> */}
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
