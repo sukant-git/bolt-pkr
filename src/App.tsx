@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
@@ -17,13 +18,10 @@ function App() {
   };
 
   return (
-    <>
-      {!isLoggedIn ? (
-        <Login onLogin={handleLogin} />
-      ) : (
-        <Dashboard user={user!} onLogout={handleLogout} />
-      )}
-    </>
+    <Routes>
+      <Route path="/login" element={isLoggedIn ? <Navigate to="/" /> : <Login onLogin={handleLogin} />} />
+      <Route path="/*" element={isLoggedIn ? <Dashboard user={user!} onLogout={handleLogout} /> : <Navigate to="/login" />} />
+    </Routes>
   );
 }
 

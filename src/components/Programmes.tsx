@@ -1,7 +1,33 @@
+import { useState } from "react";
+import ProgrammeDetails from "./ProgrammeDetails";
+
+interface Programme {
+  name: string;
+  department: string;
+}
+
 export default function Programmes() {
-  const programmesData = [
+  const [selectedProgramme, setSelectedProgramme] = useState<Programme | null>(
+    null
+  );
+
+  const programmesData: Programme[] = [
     { name: "B.Tech - IT", department: "Information Technology" },
   ];
+
+  const handleViewProgramme = (programme: Programme) => {
+    setSelectedProgramme(programme);
+  };
+
+  const handleBack = () => {
+    setSelectedProgramme(null);
+  };
+
+  if (selectedProgramme) {
+    return (
+      <ProgrammeDetails programme={selectedProgramme} onBack={handleBack} />
+    );
+  }
 
   return (
     <div className="space-y-8">
@@ -35,7 +61,10 @@ export default function Programmes() {
               <h3 className="text-lg font-bold text-gray-800">{programme.name}</h3>
               <p className="text-gray-600">{programme.department}</p>
             </div>
-            <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 self-start">
+            <button
+              onClick={() => handleViewProgramme(programme)}
+              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 self-start"
+            >
               View
             </button>
           </div>

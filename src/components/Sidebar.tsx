@@ -1,42 +1,42 @@
+import { Link, useLocation } from 'react-router-dom';
+
 interface SidebarProps {
-  activeSection: string;
-  setActiveSection: (section: string) => void;
   role: string;
   currentPage: string;
 }
 
 const facultyMenuItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'regulations', label: 'Regulations' },
-  { id: 'batches', label: 'Batches' },
-  { id: 'departments', label: 'Departments' },
-  { id: 'programmes', label: 'Programmes' },
-  { id: 'classes', label: 'Classes' },
-  { id: 'courses', label: 'Courses' },
+  { id: 'home', label: 'Home', path: '/' },
+  { id: 'regulations', label: 'Regulations', path: '/regulations' },
+  { id: 'batches', label: 'Batches', path: '/batches' },
+  { id: 'departments', label: 'Departments', path: '/departments' },
+  { id: 'classes', label: 'Classes', path: '/classes' },
+  { id: 'courses', label: 'Courses', path: '/courses' },
 ];
 
 const examMenuItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'blooms-levels', label: 'Blooms Levels' },
-  { id: 'activities', label: 'Activities' },
-  { id: 'exam-types', label: 'Exam Types' },
-  { id: 'question-patterns', label: 'Question Patterns' },
-  { id: 'questions', label: 'Questions' },
-  { id: 'question-papers', label: 'Question Papers' },
-  { id: 'student-marks', label: 'Student Marks' },
-  { id: 'course-end-survey', label: 'Course End Survey' },
+  { id: 'home', label: 'Home', path: '/' },
+  { id: 'blooms-levels', label: 'Blooms Levels', path: '/blooms-levels' },
+  { id: 'activities', label: 'Activities', path: '/activities' },
+  { id: 'exam-types', label: 'Exam Types', path: '/exam-types' },
+  { id: 'question-patterns', label: 'Question Patterns', path: '/question-patterns' },
+  { id: 'questions', label: 'Questions', path: '/questions' },
+  { id: 'question-papers', label: 'Question Papers', path: '/question-papers' },
+  { id: 'student-marks', label: 'Student Marks', path: '/student-marks' },
+  { id: 'course-end-survey', label: 'Course End Survey', path: '/course-end-survey' },
 ];
 
 const attainmentMenuItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'po', label: 'PO' },
-  { id: 'co', label: 'CO' },
-  { id: 'pso', label: 'PSO' },
-  { id: 'calculation-metrics', label: 'Calculation Metrics' },
-  { id: 'attainment-calculation', label: 'Attainment Calculation' },
+  { id: 'home', label: 'Home', path: '/' },
+  { id: 'po', label: 'PO', path: '/po' },
+  { id: 'co', label: 'CO', path: '/co' },
+  { id: 'pso', label: 'PSO', path: '/pso' },
+  { id: 'calculation-metrics', label: 'Calculation Metrics', path: '/calculation-metrics' },
+  { id: 'attainment-calculation', label: 'Attainment Calculation', path: '/attainment-calculation' },
 ];
 
-export default function Sidebar({ activeSection, setActiveSection, role, currentPage }: SidebarProps) {
+export default function Sidebar({ role, currentPage }: SidebarProps) {
+  const location = useLocation();
   let menuItems = [];
   if (currentPage === 'exam') {
     menuItems = examMenuItems;
@@ -52,17 +52,17 @@ export default function Sidebar({ activeSection, setActiveSection, role, current
         <h2 className="text-primary font-semibold text-lg mb-6">Dashboard</h2>
         <nav className="space-y-1">
           {menuItems.map((item) => (
-            <button
+            <Link
               key={item.id}
-              onClick={() => setActiveSection(item.id)}
-              className={`w-full text-left px-4 py-3 rounded-lg transition ${
-                activeSection === item.id
+              to={item.path}
+              className={`block w-full text-left px-4 py-3 rounded-lg transition ${
+                location.pathname === item.path
                   ? 'bg-primary/10 text-primary font-medium border-l-4 border-primary'
                   : 'text-neutral-700 hover:bg-neutral-100'
               }`}
             >
               {item.label}
-            </button>
+            </Link>
           ))}
         </nav>
       </div>
